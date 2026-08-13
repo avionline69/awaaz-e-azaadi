@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-saffron: #f47b20;
+  --color-azaadi-green: #3f8f4d;
+  --color-ink: #101311;
+}
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: #101311;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse { 50% { opacity: .45; transform: scale(.98); } }
+
+.hero-bg {
+  background-image: url("/bg/scene-wide.png");
+  background-size: cover;
+  background-position: center;
+}
+@media (orientation: portrait) {
+  .hero-bg { background-position: 50% 50%; }
+}
+@media (max-width: 640px) {
+  .hero-bg { background-position: 58% center; }
+}
+.glass {
+  border: 1px solid rgba(255,255,255,.12);
+  background: linear-gradient(to bottom, rgba(255,255,255,.15), rgba(255,255,255,.055));
+  backdrop-filter: blur(24px) saturate(1.7);
+  -webkit-backdrop-filter: blur(24px) saturate(1.7);
+  box-shadow: 0 16px 48px -12px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.vinyl-spin { animation: spin 8s linear infinite; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
